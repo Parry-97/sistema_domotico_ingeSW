@@ -8,8 +8,8 @@ public class Stanza {
 
     private String nome;
     private ArrayList<Sensore> listaSensori;
-    private ArrayList<Object> listaAttuatori;
-    private ArrayList<Object> listaArtefatti;
+    private ArrayList<Attuatore> listaAttuatori;
+    private ArrayList<Artefatto> listaArtefatti;
 
     public Stanza(String nome) {
         this.nome = nome;
@@ -30,12 +30,12 @@ public class Stanza {
         return listaSensori;
     }
 
-    public ArrayList<Object> getListaAttuatori() {
+    public ArrayList<Attuatore> getListaAttuatori() {
         return listaAttuatori;
     }
 
 
-    public ArrayList<Object> getListaArtefatti() {
+    public ArrayList<Artefatto> getListaArtefatti() {
         return listaArtefatti;
     }
 
