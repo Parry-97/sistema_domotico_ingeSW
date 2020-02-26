@@ -3,9 +3,6 @@ package inge.progetto;
 import java.util.ArrayList;
 
 public class Stanza {
-
-     //TODO: listaAttuatori e listaArtefatti
-
     private String nome;
     private ArrayList<Sensore> listaSensori;
     private ArrayList<Attuatore> listaAttuatori;
@@ -45,19 +42,24 @@ public class Stanza {
             if (s.getCategoria().equals(sens.getCategoria()) || s.getNome().equals(sens.getNome()))
                 return;
         }
-
         listaSensori.add(sens);
+        System.out.println("Sensore aggiunto");
+
     }
 
     //TODO: segnalazione all'utente
     //TODO: Includere classe artefatto
-    public void aggiungiArtefatto(Object artefatto) {
+    public void aggiungiArtefatto(Artefatto artefatto) {
 
     }
 
-    //TODO:  segnalazione utente
-    //TODO: Inclusione classe attuatore
-    public void aggiungiAttuatore(Object attuatore) {
+    public void aggiungiAttuatore(Attuatore a) {
+        for (Attuatore lista : listaAttuatori) {
+            if (lista.getCategoria().equals(a.getCategoria()) || a.getNome().equals(a.getNome()))
+                return;
+        }
+        listaAttuatori.add(a);
+        System.out.println("Attuatore aggiunto");
 
     }
 
