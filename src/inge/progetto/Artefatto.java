@@ -66,10 +66,15 @@ public class Artefatto {
     }
 
     public String visualizzaDispositivi() {
-        String visualizza = "";
-        visualizza = "Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n";
+        String visualizza = "Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n";
+
         for (Attuatore a: listaAttuatori) {
             visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale() + "\n";
+        }
+
+        visualizza += "E dispone dei seguenti sensori:\n";
+        for (Sensore s: listaSensori) {
+            visualizza +=  s.getNome() + ", categoria: " + s.getCategoria().getNome() + ", RILEVAZIONIIIIIIIII\n";
         }
 
         return visualizza;

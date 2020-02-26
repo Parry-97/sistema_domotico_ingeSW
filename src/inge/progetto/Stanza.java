@@ -47,9 +47,13 @@ public class Stanza {
 
     }
 
-    //TODO: segnalazione all'utente
-    //TODO: Includere classe artefatto
-    public void aggiungiArtefatto(Artefatto artefatto) {
+    public void aggiungiArtefatto(Artefatto a) {
+        for (Artefatto lista : listaArtefatti) {
+            if (lista.getNome().equals(a.getNome()))
+                return;
+        }
+        listaArtefatti.add(a);
+        System.out.println("Artefatto aggiunto");
 
     }
 
@@ -63,8 +67,14 @@ public class Stanza {
 
     }
 
-    //TODO: descrizione della stanza da visualizzare all'utente
     public String visualizzaDisposizione() {
-        return "Sistema Fuori Uso";
+        String visualizza = "Nome Stanza: " + this.getNome() + ", essa possiede:\n";
+
+        for (Artefatto a: listaArtefatti) {
+            visualizza +=  a.visualizzaDispositivi();
+        }
+
+        return visualizza;
+
     }
 }
