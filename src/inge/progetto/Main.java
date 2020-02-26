@@ -13,8 +13,8 @@ public class Main {
         Artefatto cancello = new Artefatto("cancello");
 
         cancello.aggiungiAttuatore(pulsante1);
-        cancello.aggiungiAttuatore(pulsante1);
         cancello.aggiungiAttuatore(pulsante2);
+        cancello.aggiungiAttuatore(pulsante3);
         cancello.aggiungiAttuatore(pulsante3);
         System.out.println(cancello.visualizzaDispositivi());
 

@@ -46,19 +46,19 @@ public class CategoriaAttuatore {
                     return;
                 }
             }
-            modalita.add(mod);
-        } else {
-            modalita.add(mod);
         }
+
+        modalita.add(mod);
         System.out.println("Modalità aggiunta");
     }
 
     public String visualizzaCategoriaAttuatore() {
-        String visualizza = "";
-        visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + testoLibero + ", lista modalità operative:\n";
+        String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + testoLibero + ", lista modalità operative:\n";
+
         for (ModalitaOperativa lista: modalita) {
             visualizza +=  lista.getNome() + "\n";
         }
+
         return visualizza;
     }
 }

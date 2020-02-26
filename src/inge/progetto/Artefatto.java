@@ -39,23 +39,30 @@ public class Artefatto {
         this.listaAttuatori = listaAttuatori;
     }
 
-    public void aggiungiSensore() { //Implementare come sotto
+    public void aggiungiSensore(Sensore s) {
+        if(!listaSensori.isEmpty()) {
+            for (Sensore lista : listaSensori) {
+                if (lista.getNome().equals(s.getNome()) || lista.getCategoria().getNome().equals(s.getCategoria().getNome())) {
+                    return;
+                }
+            }
+        }
 
+        listaSensori.add(s);
+        System.out.println("Sensore aggiunto");
     }
 
     public void aggiungiAttuatore(Attuatore a) {
         if(!listaAttuatori.isEmpty()) {
             for (Attuatore lista : listaAttuatori) {
-                if (!lista.getNome().equals(a.getNome()) && !lista.getCategoria().getNome().equals(a.getCategoria().getNome())) {
-                    listaAttuatori.add(a);
-                    System.out.println("Attuatore aggiunto");
+                if (lista.getNome().equals(a.getNome()) || lista.getCategoria().getNome().equals(a.getCategoria().getNome())) {
                     return;
                 }
             }
-        } else {
-            listaAttuatori.add(a);
-            System.out.println("Attuatore aggiunto");
         }
+
+        listaAttuatori.add(a);
+        System.out.println("Attuatore aggiunto");
     }
 
     public String visualizzaDispositivi() {
@@ -64,6 +71,7 @@ public class Artefatto {
         for (Attuatore a: listaAttuatori) {
             visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale() + "\n";
         }
+
         return visualizza;
     }
 }
