@@ -2,6 +2,7 @@ package inge.progetto;
 
 public class ModalitaOperativa {
     private String nome;
+    private Stato post_stato;
     private int paramentro;
 
     public ModalitaOperativa(String nome, int paramentro) {

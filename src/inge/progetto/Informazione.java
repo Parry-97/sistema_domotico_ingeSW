@@ -6,10 +6,19 @@ public class Informazione {
 
     public Informazione(String nome) {
         this.nome = nome;
+
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setValore(int valore) {
+        this.valore = valore;
+    }
+
+    public int getValore() {
+        return valore;
     }
 
     public void setNome(String nome) {

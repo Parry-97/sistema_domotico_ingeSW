@@ -66,12 +66,12 @@ public class Artefatto {
     }
 
     public String visualizzaDispositivi() {
-        String visualizza = "";
-        visualizza = "Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n";
+        StringBuilder visualizza = new StringBuilder();
+        visualizza = new StringBuilder("Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n");
         for (Attuatore a: listaAttuatori) {
-            visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale() + "\n";
+            visualizza.append(a.getNome()).append(", categoria: ").append(a.getCategoria().getNome()).append(", modalità attuale: ").append(a.getModalitaAttuale()).append("\n");
         }
 
-        return visualizza;
+        return visualizza.toString();
     }
 }
