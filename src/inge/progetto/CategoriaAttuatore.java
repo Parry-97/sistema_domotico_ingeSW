@@ -53,7 +53,7 @@ public class CategoriaAttuatore {
     }
 
     public String visualizzaCategoriaAttuatore() {
-        String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + testoLibero + ", lista modalità operative:\n";
+        String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + this.getTestoLibero() + ", lista modalità operative:\n";
 
         for (ModalitaOperativa lista: modalita) {
             visualizza +=  lista.getNome() + "\n";

@@ -26,4 +26,14 @@ public class CategoriaSensore {
     public void setTestolibero(String testolibero) {
         this.testolibero = testolibero;
     }
+
+    public String visualizzaCategoriaSensore() {
+        String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + this.getTestolibero() + ", RILEVAZIONIIIIII\n";
+/*
+        for (ModalitaOperativa lista: modalita) {
+            visualizza +=  lista.getNome() + "\n";
+        }
+*/
+        return visualizza;
+    }
 }
