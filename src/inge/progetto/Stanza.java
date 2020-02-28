@@ -48,8 +48,8 @@ public class Stanza {
     }
 
     public void aggiungiArtefatto(Artefatto a) {
-        for (Artefatto lista : listaArtefatti) {
-            if (lista.getNome().equals(a.getNome()))
+        for (Artefatto artefatto : listaArtefatti) {
+            if (artefatto.getNome().equals(a.getNome()))
                 return;
         }
         listaArtefatti.add(a);
@@ -58,8 +58,8 @@ public class Stanza {
     }
 
     public void aggiungiAttuatore(Attuatore a) {
-        for (Attuatore lista : listaAttuatori) {
-            if (lista.getCategoria().equals(a.getCategoria()) || a.getNome().equals(a.getNome()))
+        for (Attuatore attuatore : listaAttuatori) {
+            if (attuatore.getCategoria().equals(a.getCategoria()) || a.getNome().equals(a.getNome()))
                 return;
         }
         listaAttuatori.add(a);
