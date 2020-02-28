@@ -2,13 +2,14 @@ package inge.progetto;
 
 public class CategoriaSensore {
     private String nome;
+    private boolean fisico;
     private String testolibero;
-    private String[] infoRilevabili;
+    private Informazione infoRilevabile;
 
-    public CategoriaSensore(String nome, String testolibero, String[] infoRilevabili) {
+    public CategoriaSensore(String nome, String testolibero, boolean fisico) {
         this.nome = nome;
         this.testolibero = testolibero;
-        this.infoRilevabili = infoRilevabili;
+        this.fisico = fisico;
     }
 
     public String getNome() {
@@ -35,5 +36,21 @@ public class CategoriaSensore {
         }
 */
         return visualizza;
+    }
+
+    public Informazione getInfoRilevabile() {
+        return infoRilevabile;
+    }
+
+    public void setInfoRilevabile(Informazione info) {
+        this.infoRilevabile = info;
+    }
+
+    public boolean isFisico() {
+        return fisico;
+    }
+
+    public void setFisico(boolean fisico) {
+        this.fisico = fisico;
     }
 }
