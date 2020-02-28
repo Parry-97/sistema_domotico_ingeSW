@@ -41,8 +41,8 @@ public class Artefatto {
 
     public void aggiungiSensore(Sensore s) {
         if(!listaSensori.isEmpty()) {
-            for (Sensore lista : listaSensori) {
-                if (lista.getNome().equals(s.getNome()) || lista.getCategoria().getNome().equals(s.getCategoria().getNome())) {
+            for (Sensore sensore : listaSensori) {
+                if (sensore.getNome().equals(s.getNome()) || sensore.getCategoria().getNome().equals(s.getCategoria().getNome())) {
                     return;
                 }
             }
@@ -54,8 +54,8 @@ public class Artefatto {
 
     public void aggiungiAttuatore(Attuatore a) {
         if(!listaAttuatori.isEmpty()) {
-            for (Attuatore lista : listaAttuatori) {
-                if (lista.getNome().equals(a.getNome()) || lista.getCategoria().getNome().equals(a.getCategoria().getNome())) {
+            for (Attuatore attuatore : listaAttuatori) {
+                if (attuatore.getNome().equals(a.getNome()) || attuatore.getCategoria().getNome().equals(a.getCategoria().getNome())) {
                     return;
                 }
             }
@@ -66,10 +66,15 @@ public class Artefatto {
     }
 
     public String visualizzaDispositivi() {
-        String visualizza = "";
-        visualizza = "Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n";
+        String visualizza = "Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n";
+
         for (Attuatore a: listaAttuatori) {
-            visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale() + "\n";
+            visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale().getNome() + "\n";
+        }
+
+        visualizza += "E dispone dei seguenti sensori:\n";
+        for (Sensore s: listaSensori) {
+            visualizza +=  s.getNome() + ", categoria: " + s.getCategoria().getNome() + ", RILEVAZIONIIIIIIIII\n";
         }
 
         return visualizza;
