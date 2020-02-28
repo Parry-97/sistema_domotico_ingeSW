@@ -1,27 +1,22 @@
 package inge.progetto;
 
-public class ModalitaOperativa {
-    private String nome;
-    private int paramentro;
+public class ModalitaOperativa extends Informazione{
+    private int valore;
 
-    public ModalitaOperativa(String nome, int paramentro) {
-        this.nome = nome;
-        this.paramentro = paramentro;
+    public ModalitaOperativa(String nome, int valore) {
+        super(nome);
+        this.valore = valore;
     }
 
-    public String getNome() {
-        return nome;
+    //Per ora proviamo a fare senza parametro
+    public int getValore() {
+        if(this.valore > super.getVALORE_MAX())
+            return super.getVALORE_MAX();
+        else return Math.max(this.valore, super.getVALORE_MIN());
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setValore(int valore) {
+        this.valore = valore;
     }
 
-    public int getParamentro() {
-        return paramentro;
-    }
-
-    public void setParamentro(int paramentro) {
-        this.paramentro = paramentro;
-    }
 }

@@ -4,19 +4,14 @@ public class Sensore {
     private String nome;
     private CategoriaSensore categoria;
     private Informazione rilevazione;
-    private boolean stato;
+    private boolean statoAttivazione;
+
 
     public Sensore(String nome, CategoriaSensore categoria) {
         this.nome = nome;
         this.categoria = categoria;
-        this.stato = true;
-    }
-
-    public Sensore(String nome, CategoriaSensore categoria, Informazione rilevazione) {
-        this.nome = nome;
-        this.categoria = categoria;
-        this.rilevazione = rilevazione;
-        this.stato = true;
+        this.rilevazione = categoria.getInfoRilevabile();//l'informazione associata al sensore è inizialmente casuale
+        this.statoAttivazione = true;
     }
 
     public String getNome() {
@@ -31,32 +26,27 @@ public class Sensore {
         return categoria;
     }
 
+    /*public Informazione getRilevazione() {
+        return rilevazione;
+    }
+    */
+
+    public void setRilevazione(ModalitaOperativa rilevazione) {
+        if(this.categoria.isFisico())
+            System.out.println("Non è possibile alterare le rilevazioni del sensore! \n");
+        else
+            this.rilevazione = rilevazione;
+    }
+
     public Informazione getRilevazione() {
         return rilevazione;
     }
 
-    public void setRilevazione(Informazione rilevazione) {
-        this.rilevazione = rilevazione;
-    }
-
     public boolean isAttivo() {
-        return stato;
+        return statoAttivazione;
     }
 
-    public void setStato(boolean stato) {
-        this.stato = stato;
+    public void setStatoAttivazione(boolean statoAttivazione) {
+        this.statoAttivazione = statoAttivazione;
     }
-/*
-    public String leggiValoreAttuatore(Attuatore a) {
-        if(this.getCategoria().getNome().equals(a.getCategoria().getNome())) {
-            this.getRilevazione().setValore(a.getModalitaAttuale().getParamentro());
-            return "Tipo informazione: " + this.getCategoria().getNome() + ", valore attuale: " + a.getModalitaAttuale().getParamentro();
-        }
-        return "Non è possibile leggere il valore per questo sensore";
-    }
-
-    public String leggiValoreSensore() {
-        return "Tipo sensore: " + this.getCategoria().getNome() + ", valore attuale: " + this.rilevazione.getValore();
-    }
- */
 }
