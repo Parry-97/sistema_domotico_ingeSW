@@ -99,7 +99,7 @@ public class Artefatto {
         String visualizza = "Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n";
 
         for (Attuatore a: listaAttuatori) {
-            visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale().getNome() + "\n";
+            visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale() + "\n";
         }
 
         visualizza += "E dispone dei seguenti sensori:\n";
