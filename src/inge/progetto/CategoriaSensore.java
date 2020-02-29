@@ -28,6 +28,7 @@ public class CategoriaSensore {
         this.testolibero = testolibero;
     }
 
+    //Aggiungila a te(Mattia) non ho ben capito cosa fa
     public String visualizzaCategoriaSensore() {
         String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + this.getTestolibero() + ", RILEVAZIONIIIIII\n";
 /*
