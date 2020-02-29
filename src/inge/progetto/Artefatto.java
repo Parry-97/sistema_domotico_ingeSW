@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 public class Artefatto {
     private String nome;
+    /**
+     * Rappresenta lo 'stato attuale' dell'artefatto, monitorato da sensori({@link #listaSensori} e comandato
+     * da attuatori({@link #listaAttuatori}) ad esso associati
+     * @see ModalitaOperativa
+     */
     private ModalitaOperativa statoAttuale;
     private ArrayList<Sensore> listaSensori;
     private ArrayList<Attuatore> listaAttuatori;
 
-    //L'aggiunta di stato attuale permette di definirne una sorta di stato/modalità operativa di Default
+    //stato attuale permette di definirne una sorta di stato/modalità operativa di Default
     public Artefatto(String nome, ModalitaOperativa statoAttuale) {
         this.statoAttuale = statoAttuale;
         this.nome = nome;
@@ -20,6 +25,9 @@ public class Artefatto {
         return statoAttuale;
     }
 
+    /**Modifica lo stato attuale dell'artefatto e aggiorna i sensori ad esso associati
+     * @param statoAttuale
+     */
     public void setStatoAttuale(ModalitaOperativa statoAttuale) {
         this.statoAttuale = statoAttuale;
         for (Sensore s: listaSensori) {
@@ -51,6 +59,9 @@ public class Artefatto {
         this.listaAttuatori = listaAttuatori;
     }
 
+    /**
+     * @param s
+     */
     public void aggiungiSensore(Sensore s) {
 
         if (s.getCategoria().isFisico()) {
@@ -80,7 +91,7 @@ public class Artefatto {
         }
 
         listaAttuatori.add(a);
-        a.setMonitorato(this);
+        a.aggiungiArtefatto(this);
         System.out.println("Attuatore aggiunto");
     }
 

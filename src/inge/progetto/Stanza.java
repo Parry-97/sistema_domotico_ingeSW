@@ -30,10 +30,14 @@ public class Stanza {
         return listaArtefatti;
     }
 
+    /**Associa un dispostivo alla stanza aggiungendolo alla sua lista di sensori({@link #listaSensori}).
+     * Il sensore dev'essere di un certo tipo/categoria ovvero 'fisico' in quanto altrimenti non può essere aggiunto.
+     * @param sens sensore da aggiungere
+     */
     //TODO: decidere su eventuale segnalazione per corretta aggiunta di un elemento
     public void aggiungiSensore(Sensore sens) {
         if (!sens.getCategoria().isFisico()) {
-            System.out.println("\n!!! Non è possbile associare tale categoria di dispositivo alla stanza specificata !!!\n");
+            System.out.println("\n!!! Non è possibile associare tale categoria di dispositivo alla stanza specificata !!!\n");
             return;
         }
 
