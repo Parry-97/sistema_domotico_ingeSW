@@ -8,6 +8,11 @@ public class ModalitaOperativa extends Informazione{
         this.valore = valore;
     }
 
+    public ModalitaOperativa(String nome) {
+        super(nome);
+    }
+
+
     //Per ora proviamo a fare senza parametro
     public int getValore() {
         if(this.valore > super.getVALORE_MAX())

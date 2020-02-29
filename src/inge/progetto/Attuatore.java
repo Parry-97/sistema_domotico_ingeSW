@@ -4,16 +4,15 @@ public class Attuatore {
     private String nome;
     private Artefatto monitorato;
     private CategoriaAttuatore categoria;
-    private String modalitaAttuale;
+    private ModalitaOperativa modalitaAttuale;
     private boolean statoAttivazione;
 
-    public Attuatore(String nome, CategoriaAttuatore categoria, String modalitaAttuale) {
+    public Attuatore(String nome, CategoriaAttuatore categoria, ModalitaOperativa modalitaAttuale) {
         this.nome = nome;
         this.categoria = categoria;
         this.modalitaAttuale = modalitaAttuale;
         this.statoAttivazione = true;
     }
-
 
     public Artefatto getMonitorato() {
         return monitorato;
@@ -39,26 +38,26 @@ public class Attuatore {
         this.categoria = categoria;
     }
 
-    public String getModalitaAttuale() {
+    public ModalitaOperativa getModalitaAttuale() {
         return modalitaAttuale;
     }
 
-    public void setModalitaAttuale(String nuovaModalita) {
-        if(this.modalitaAttuale.equals(nuovaModalita)) {
-            System.out.println("Sei già in questa modalità");
-            return;
-        }
-        for (ModalitaOperativa mod : this.getCategoria().getModalita()) {
-            if(mod.getNome().equals(nuovaModalita)) {
-                this.modalitaAttuale = nuovaModalita;
-                this.monitorato.setStatoAttuale(mod);
-
-                System.out.println("Nuova modalità");
+        public void setModalitaAttuale(ModalitaOperativa nuovaModalita) {
+            if(this.modalitaAttuale.getNome().equals(nuovaModalita.getNome())) {
+                System.out.println("Sei già in questa modalità");
                 return;
             }
+            for (ModalitaOperativa mod : this.getCategoria().getModalita()) {
+                if(mod.getNome().equals(nuovaModalita.getNome())) {
+                    this.modalitaAttuale = new ModalitaOperativa(nuovaModalita.getNome(), nuovaModalita.getValore());
+                    this.monitorato.setStatoAttuale(nuovaModalita);
+
+                    System.out.println("Nuova modalità");
+                    return;
+                }
+            }
+            System.out.println("Questa modalità non esiste per questo attuatore");
         }
-        System.out.println("Questa modalità non esiste per questo attuatore");
-    }
 
     public boolean getStatoAttivazione() {
         return statoAttivazione;

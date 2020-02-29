@@ -102,14 +102,18 @@ public class Main {
         ModalitaOperativa spento = new ModalitaOperativa("Spento", 0);
         ModalitaOperativa acceso = new ModalitaOperativa("Acceso", 1);
 
-        Artefatto lampada = new Artefatto("Lampada",spento);
+        Artefatto lampada1 = new Artefatto("Lampada1",spento);
+        Artefatto lampada2 = new Artefatto("Lampada2", spento);
+        Artefatto lampada3 = new Artefatto("Lampada3", spento);
+
         Stanza cucina = new Stanza("Cucina");
 
         CategoriaAttuatore catAtt = new CategoriaAttuatore("Interrutore", "sdadafaf");
         catAtt.aggiungiModalitaOperativa(spento);
         catAtt.aggiungiModalitaOperativa(acceso);
 
-        Attuatore interrutore1 = new Attuatore("interrutore", catAtt,"Spento");
+        Attuatore interrutore1 = new Attuatore("interrutore1", catAtt, spento);
+        Attuatore interrutore2 = new Attuatore("interrutore2", catAtt, spento);
 
         CategoriaSensore cat1 = new CategoriaSensore("sensore di temperatura","adasdasda", true);
         Informazione info1 = new Informazione("temperatura");
@@ -119,24 +123,38 @@ public class Main {
         CategoriaSensore cat2 = new CategoriaSensore("sensore di luce", "sdasdasd", false);
         cat2.setInfoRilevabile(new Informazione("luce"));
         Sensore t1 = new Sensore("termometro", cat1);
-        Sensore sensLampada = new Sensore("sensoreLampada", cat2);
+        Sensore sensLampada1 = new Sensore("sensoreLampada1", cat2);
+        Sensore sensLampada2 = new Sensore("sensoreLampada2", cat2);
+        Sensore sensLampada3 = new Sensore("sensoreLampada3", cat2);
         cucina.aggiungiSensore(t1);
-        lampada.aggiungiSensore(sensLampada);
-        lampada.aggiungiAttuatore(interrutore1);
-        cucina.aggiungiArtefatto(lampada);
+        lampada1.aggiungiSensore(sensLampada1);
+        lampada1.aggiungiAttuatore(interrutore1);
+        lampada2.aggiungiSensore(sensLampada2);
+        lampada2.aggiungiAttuatore(interrutore1);
+        lampada3.aggiungiAttuatore(interrutore2);
+        lampada3.aggiungiSensore(sensLampada3);
+        cucina.aggiungiArtefatto(lampada1);
+        cucina.aggiungiArtefatto(lampada2);
+        cucina.aggiungiArtefatto(lampada3);
 
-        System.out.println("\n" + lampada.visualizzaDispositivi());
+        System.out.println("\n" + lampada1.visualizzaDispositivi());
+        System.out.println("\n" + lampada2.visualizzaDispositivi());
+        System.out.println("\n" + lampada3.visualizzaDispositivi());
 
         for (int i = 0; i < 6; i++) {
             if(i == 3)
-                interrutore1.setModalitaAttuale("Acceso");
+                interrutore1.setModalitaAttuale(acceso);
 
             System.out.println(i+") Misura della temperatura da t1 :" + t1.getRilevazione().getValore());
-            System.out.println("Misura della luce da sensLampada: " + sensLampada.getRilevazione().getValore());
+            System.out.println("Misura della luce da sensLampada1: " + sensLampada1.getRilevazione().getValore());
+            System.out.println("Misura della luce da sensLampada2: " + sensLampada2.getRilevazione().getValore());
         }
 
-        System.out.println("\n" +lampada.visualizzaDispositivi());
+        System.out.println("\n" +lampada1.visualizzaDispositivi());
+        System.out.println("\n" + lampada2.visualizzaDispositivi());
+        interrutore2.setModalitaAttuale(acceso);
+        System.out.println("\n" + lampada3.visualizzaDispositivi());
         System.out.println("\n" +cucina.visualizzaDisposizione());
-        cucina.aggiungiSensore(sensLampada);
+        cucina.aggiungiSensore(sensLampada1);
     }
 }
