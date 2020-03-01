@@ -3,8 +3,8 @@ package inge.progetto;
 import java.util.ArrayList;
 
 /**
- * Ogni {@link Attuatore} è definito tramite una categoria a cui 'appartiene'. Una categoria di attuatori è univocamente identificata
- * da un {@link #nome}, da un {@link #testoLibero} di lunghezza massima predefinita e dall'insieme(eventualmente singoletto) delle {@link #modalita}
+ * Ogni {@link Attuatore} &egrave; definito tramite una categoria a cui 'appartiene'. Una categoria di attuatori &egrave; univocamente identificata
+ * da un {@link #nome}, da un {@link #testoLibero} di lunghezza massima predefinita e dall'insieme(eventualmente singoletto) delle modalit&agrave;
  * operative esibite da ogni attuatore di quella categoria
  * @see ModalitaOperativa
  *
@@ -23,7 +23,7 @@ public class CategoriaAttuatore {
     private final String testoLibero;
 
     /**
-     * insieme delle modalità operative esibite da attuatori della categoria
+     * insieme delle modalit&agrave; operative esibite da attuatori della categoria
      */
     private ArrayList<ModalitaOperativa> modalita;
 
@@ -63,15 +63,15 @@ public class CategoriaAttuatore {
     }
      */
 
-    /**Fornisce l'insieme delle modalita operative esibite da attuatori appartenenti alla categoria
+    /**Fornisce l'insieme delle modalit&agrave; operative esibite da attuatori appartenenti alla categoria
      * @return lista di {@link #modalita} operative
      */
     public ArrayList<ModalitaOperativa> getModalita() {
         return modalita;
     }
 
-    /**Permette di aggiungere una nuova modalità operativa a quelle gia presenti
-     * @param mod nuova modalità operativa da aggiungere
+    /**Permette di aggiungere una nuova modalit&agrave; operativa a quelle gia presenti
+     * @param mod nuova modalit&agrave; operativa da aggiungere
      */
     public void aggiungiModalitaOperativa(ModalitaOperativa mod) {
         if(!modalita.isEmpty()) {

@@ -1,11 +1,11 @@
 package inge.progetto;
 
 /**
- * Ogni {@link Sensore} è descritto da una categoria. Essa è caratterizzata da un {@link #nome}, da un {@link #testolibero} di lunghezza
+ * Ogni {@link Sensore} &egrave; descritto da una categoria. Essa &egrave; caratterizzata da un {@link #nome}, da un {@link #testolibero} di lunghezza
  * massima predefinita (per esprimere ad esempio la sigla, il costruttore ecc.) e dall'insieme(eventualmente singoletto) delle informazioni
  * rilevabili da ogni sensore di quella categoria. Inoltre viene anche specificata la natura del sensore ({@link #fisico}) ovvero se
- * quest'ultimo può essere utilizzato per la misura di grandezze fisiche(temperatura, pressione) o per il monitoraggio di artefatti
- * presenti all'interno dell'unità immobiliare
+ * quest'ultimo pu&ograve; essere utilizzato per la misura di grandezze fisiche(temperatura, pressione) o per il monitoraggio di artefatti
+ * presenti all'interno dell'unit&agrave; immobiliare
  *
  * @see Informazione
  * @see Artefatto
@@ -65,10 +65,16 @@ public class CategoriaSensore {
         return testolibero;
     }
 
+    /**Permette di specificare/modificare il testo libero della categoria
+     * @param testolibero nuovo testo libero da assegnare alla categoria
+     */
     public void setTestolibero(String testolibero) {
         this.testolibero = testolibero;
     }
 
+    /**Permette di ottenere una rappresentazione testuale delle caratteristiche della categoria
+     * @return stringa descrittiva per la categoria
+     */
     public String visualizzaCategoriaSensore() {
         String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + this.getTestolibero() + ", RILEVAZIONIIIIII\n";
 /*
@@ -87,7 +93,7 @@ public class CategoriaSensore {
     }
 
     /**Permette di specificare il tipo di informazione rilevabile da sensori della stessa categoria
-     * @param info
+     * @param info nuova informazione rilevabile da assegnare alla categoria di sensori
      */
     public void setInfoRilevabile(Informazione info) {
         this.infoRilevabile = info;
@@ -103,7 +109,7 @@ public class CategoriaSensore {
     }
 
     /**Permette di specificare la natura della categoria di sensori
-     * @param fisico
+     * @param fisico valore di flag che definisce la natura 'fisica' dei sensori della categoria
      */
     public void setFisico(boolean fisico) {
         this.fisico = fisico;

@@ -5,9 +5,11 @@ import java.util.ArrayList;
 /**
  * Rappresenta un attuatore ovvero un dispositivo ,tramite il quale, il sistema domotivo compiere determinate azioni
  * (accensione/spegnimento luce, regolazione temperatura, apertura/chiusura finestre) che influenzano il comportamento
- * delle sottounita da queste gestite. Ogni attuatore è definito da un {@link #nome}, una {@link #categoria} che ne
- * descrive inoltre tutte le possibili modalità operative che possono essere esibite da attuatori simili, e da uno
- * stato di attivazione che indica se è spento o acceso.
+ * delle sottounita da queste gestite. Ogni attuatore &egrave; definito da un {@link #nome}, una {@link #categoria} che ne
+ * descrive inoltre tutte le possibili modalit&agrave; operative che possono essere esibite da attuatori simili, e da uno
+ * stato di attivazione che indica se &egrave; spento o acceso.
+ *
+ * @author Parampal Singh, Mattia Nodari
  */
 public class Attuatore {
     private String nome;
@@ -25,7 +27,7 @@ public class Attuatore {
 
 
     /**
-     * Modalita operativa attualmente esibita dall'attuatore. Le possibili modalità operative
+     * Modalit&agrave; operativa attualmente esibita dall'attuatore. Le possibili modalit&agrave; operative
      * sono definite nella sua {@link #categoria}.
      */
     private String modalitaAttuale;
@@ -56,7 +58,7 @@ public class Attuatore {
         this.nome = nome;
     }
 
-    /**Permette di ottenere la categoia a cui appartiene l'attuatore
+    /**Permette di ottenere la categoria a cui appartiene l'attuatore
      * @return la categoria a cui appartiene l'attuatore
      */
     public CategoriaAttuatore getCategoria() {
@@ -92,18 +94,18 @@ public class Attuatore {
         this.listaComandati = listaComandati;
     }
 
-    /**Fornisce il nome dell' attuale modalità operativa({@link #modalitaAttuale}) esibita dall'attuatore
+    /**Fornisce il nome dell' attuale modalit&agrave; operativa({@link #modalitaAttuale}) esibita dall'attuatore
      * @return nome della modalita operativa attuale
      */
     public String getModalitaAttuale() {
         return modalitaAttuale;
     }
 
-    /** Specifica una nuova modalità operativa per l'attuatore controllando prima
-     * che questa sia possibile(definita nel suo set di modalità operative).
+    /** Specifica una nuova modalit&agrave; operativa per l'attuatore controllando prima
+     * che questa sia possibile(definita nel suo set di modalit&agrave; operative).
      * Inoltre determina un cambiamento dello stato degli stati artefatti comandati
      *
-     * @param nuovaModalita nome della nuova modalità operativa
+     * @param nuovaModalita nome della nuova modalit&agrave; operativa
      */
     public void setModalitaAttuale(String nuovaModalita) {
         if(this.modalitaAttuale.equals(nuovaModalita)) {
@@ -124,8 +126,8 @@ public class Attuatore {
     }
 
 
-    /** Modifica la modalità operatica/stato degli artefatti comandati dall'attuatore
-     * @param mod nuova modalità operativa da assegnare agli artefatti comandati dall'attuatore
+    /** Modifica la modalit&agrave; operatica/stato degli artefatti comandati dall'attuatore
+     * @param mod nuova modalit&agrave; operativa da assegnare agli artefatti comandati dall'attuatore
      */
     private void modificaArtefatti(ModalitaOperativa mod) {
         if (listaComandati.isEmpty()) {
