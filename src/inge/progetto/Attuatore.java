@@ -29,6 +29,9 @@ public class Attuatore {
      * sono definite nella sua {@link #categoria}.
      */
     private String modalitaAttuale;
+    /**
+     * Lo stato(spento o acceso) dell'attuatore
+     */
     private boolean statoAttivazione;
 
     public Attuatore(String nome, CategoriaAttuatore categoria, String modalitaAttuale) {
@@ -39,14 +42,23 @@ public class Attuatore {
         listaComandati = new ArrayList<>();
     }
 
+    /**Fornisce il nome dell'attuatpre
+     * @return  nome dell'attuatore
+     */
     public String getNome() {
         return nome;
     }
 
+    /**Permette di modificare il nome dell'attuatore
+     * @param nome nuovo nome da assegnare all'attuatore
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**Permette di ottenere la categoia a cui appartiene l'attuatore
+     * @return la categoria a cui appartiene l'attuatore
+     */
     public CategoriaAttuatore getCategoria() {
         return categoria;
     }
@@ -59,14 +71,23 @@ public class Attuatore {
     }
 
 
+    /**Permette di ottenere la lista degli artefatti comandati dall'attuatore
+     * @return la lista degli artefatti comandati dall'attuatore
+     */
     public ArrayList<Artefatto> getListaComandati() {
         return listaComandati;
     }
 
+    /**Aggiunge l'artefatto alla lista degli artefatti comandati dall'attuatore
+     * @param art nuovo artefatto che si desidera comandare attraverso l'attuatore
+     */
     public void aggiungiArtefatto(Artefatto art) {
         listaComandati.add(art);
     }
 
+    /**Permette di specificare la lista di artefatti che si desiderano comandare attraverso l'attuatore
+     * @param listaComandati nuova lista di artefatti comandati dall'attuatore
+     */
     public void setListaComandati(ArrayList<Artefatto> listaComandati) {
         this.listaComandati = listaComandati;
     }
