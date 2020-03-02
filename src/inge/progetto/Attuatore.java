@@ -153,5 +153,4 @@ public class Attuatore {
     public void setStatoAttivazione(boolean statoAttivazione) {
         this.statoAttivazione = statoAttivazione;
     }
-
 }

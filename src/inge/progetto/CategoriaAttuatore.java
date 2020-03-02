@@ -75,17 +75,16 @@ public class CategoriaAttuatore {
      */
     public void aggiungiModalitaOperativa(ModalitaOperativa mod) {
         if(!modalita.isEmpty()) {
-            if(modalita.contains(mod))
-                return;
             for (ModalitaOperativa m : modalita) {
                 if(m.getNome().equals(mod.getNome())) {
+                    System.out.println("Modalità Operativa già presente per questa categoria");
                     return;
                 }
             }
         }
-
         modalita.add(mod);
-        System.out.println("Modalità aggiunta");
+        System.out.println("Modalità Operativa aggiunta");
+
     }
 
     /**Fornisce una descrizione in formato testuale della categoria

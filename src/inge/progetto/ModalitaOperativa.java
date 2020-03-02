@@ -50,5 +50,4 @@ public class ModalitaOperativa extends Informazione{
     public void setValore(int valore) {
         this.valore = valore;
     }
-
 }

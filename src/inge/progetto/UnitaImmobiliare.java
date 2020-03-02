@@ -36,9 +36,15 @@ public class UnitaImmobiliare {
         this.tipo = tipo;
     }
 
+
+    public UnitaImmobiliare() {
+        this.tipo = "";
+    }
+
     /**Permette di ottenere lista/insieme di stanze nell'unit&agrave; immobiliare
      * @return lista di stanze presenti nell'unit&agrave; immobiliare
      */
+
     public ArrayList<Stanza> getListaStanze() {
         return listaStanze;
     }
@@ -83,8 +89,10 @@ public class UnitaImmobiliare {
      */
     public void aggiungiStanza(Stanza s) {
         for (Stanza stanza : listaStanze) {
-            if (stanza.getNome().equals(s.getNome()))
+            if (stanza.getNome().equals(s.getNome())) {
+                System.out.println("Stanza già presente");
                 return;
+            }
         }
         listaStanze.add(s);
         System.out.println("Stanza aggiunta");
@@ -95,8 +103,10 @@ public class UnitaImmobiliare {
      */
     public void aggiungiArtefatto(Artefatto a) { //questi Artefatti sono esterni alle stanze, ad esempio cancelli, lampade da esterni ecc..
         for (Artefatto artefatto : listaArtefatti) {
-            if (artefatto.getNome().equals(a.getNome()))
+            if (artefatto.getNome().equals(a.getNome())) {
+                System.out.println("Artefatto già presente");
                 return;
+            }
         }
         listaArtefatti.add(a);
         System.out.println("Artefatto aggiunto");
@@ -114,10 +124,12 @@ public class UnitaImmobiliare {
         }
 
         visualizza += "\nArtefatti esterni all'unità immobiliare:\n";
-        for (Artefatto artefatto : listaArtefatti) {
-            visualizza += artefatto.visualizzaDispositivi();
+        for(Stanza stanza : listaStanze) {
+            for (Artefatto artefatto : listaArtefatti) {
+                if(!stanza.getListaArtefatti().contains(artefatto))
+                    visualizza += artefatto.visualizzaDispositivi();
+            }
         }
-
         return visualizza;
     }
 
