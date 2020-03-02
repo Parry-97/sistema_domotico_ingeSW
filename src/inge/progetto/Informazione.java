@@ -2,8 +2,10 @@ package inge.progetto;
 
 /**
  * Rappresenta l'informazione/misura che il sistema domotico acquisisce attaverso ogni singolo sensori dislocati
- * nelle sottounità immobiliari soggette al controllo. Ciascuna informazione è identificata da un {@link #nome}
- * e può assumere un valore che cade entro un dominio ({@link #VALORE_MIN} , {@link #VALORE_MAX}).
+ * nelle sottounit&agrave; immobiliari soggette al controllo. Ciascuna informazione &egrave; identificata da un {@link #nome}
+ * e pu&ograve; assumere un valore che cade entro un dominio ({@link #VALORE_MIN} , {@link #VALORE_MAX}).
+ *
+ * @author Parampal Singh, Mattia Nodari
  */
 public class Informazione {
     private String nome;
