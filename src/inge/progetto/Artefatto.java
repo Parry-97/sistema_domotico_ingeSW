@@ -63,7 +63,6 @@ public class Artefatto {
      * @param s
      */
     public void aggiungiSensore(Sensore s) {
-
         if (s.getCategoria().isFisico()) {
             System.out.println("\n !!! Non è possibile collegare tale sensore all'artefatto scelto !!!");
             return;
@@ -72,6 +71,7 @@ public class Artefatto {
         if(!listaSensori.isEmpty()) {
             for (Sensore sensore : listaSensori) {
                 if (sensore.getNome().equals(s.getNome()) || sensore.getCategoria().getNome().equals(s.getCategoria().getNome())) {
+                    System.out.println("IMPOSSIBILE AGGINGERE SENSORE");
                     return;
                 }
             }
@@ -111,6 +111,6 @@ public class Artefatto {
                 visualizza += "Stato: " + s.getRilevazione().getNome() + "\n";
         }
 
-        return visualizza;
+        return visualizza + "\n";
     }
 }
