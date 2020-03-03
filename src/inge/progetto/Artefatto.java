@@ -115,7 +115,7 @@ public class Artefatto {
         if(!listaSensori.isEmpty()) {
             for (Sensore sensore : listaSensori) {
                 if (sensore.getNome().equals(s.getNome()) || sensore.getCategoria().getNome().equals(s.getCategoria().getNome())) {
-                    System.out.println("IMPOSSIBILE AGGINGERE SENSORE");
+                    System.out.println("IMPOSSIBILE AGGINGERE SENSORE DELLA STESSA CATEGORIA !!!");
                     return;
                 }
             }
@@ -132,6 +132,7 @@ public class Artefatto {
         if(!listaAttuatori.isEmpty()) {
             for (Attuatore attuatore : listaAttuatori) {
                 if (attuatore.getNome().equals(a.getNome()) || attuatore.getCategoria().getNome().equals(a.getCategoria().getNome())) {
+                    System.out.println("IMPOSSIBILE AGGIUNGERE UN ATTUATORE DELLA STESSA CATEGORIA !!!");
                     return;
                 }
             }
