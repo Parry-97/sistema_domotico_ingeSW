@@ -12,8 +12,16 @@ import java.util.ArrayList;
  * @author Parampal Singh, Mattia Nodari
  */
 public class Attuatore {
+
+    /**
+     * nome dell'attuatore
+     */
     private String nome;
 
+    /**
+     * Carattestica di associazione ad artefatto
+     */
+    private boolean singolo;
     /**
      * lista di artefatto comandato dall'attuatore
      */
@@ -36,11 +44,12 @@ public class Attuatore {
      */
     private boolean statoAttivazione;
 
-    public Attuatore(String nome, CategoriaAttuatore categoria, String modalitaAttuale) {
-        this.nome = nome;
+    public Attuatore(String nome, CategoriaAttuatore categoria, String modalitaAttuale, boolean singolo) {
+        this.nome = nome + "_" + categoria.getNome();
         this.categoria = categoria;
         this.modalitaAttuale = modalitaAttuale;
         this.statoAttivazione = true;
+        this.singolo = singolo;
         listaComandati = new ArrayList<>();
     }
 
@@ -152,5 +161,9 @@ public class Attuatore {
      */
     public void setStatoAttivazione(boolean statoAttivazione) {
         this.statoAttivazione = statoAttivazione;
+    }
+
+    public boolean isSingolo() {
+        return singolo;
     }
 }

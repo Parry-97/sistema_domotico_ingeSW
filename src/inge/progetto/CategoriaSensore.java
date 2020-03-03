@@ -1,5 +1,7 @@
 package inge.progetto;
 
+import java.io.Serializable;
+
 /**
  * Ogni {@link Sensore} &egrave; descritto da una categoria. Essa &egrave; caratterizzata da un {@link #nome}, da un {@link #testolibero} di lunghezza
  * massima predefinita (per esprimere ad esempio la sigla, il costruttore ecc.) e dall'insieme(eventualmente singoletto) delle informazioni
@@ -11,7 +13,7 @@ package inge.progetto;
  * @see Artefatto
  * @author Parampal Singh, Mattia Nodari
  */
-public class CategoriaSensore {
+public class CategoriaSensore implements Serializable {
     /**
      * nome della categoria di sensori
      */

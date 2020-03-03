@@ -1,5 +1,6 @@
 package inge.progetto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * @author Parampal Singh, Mattia Nodari
  *
  */
-public class CategoriaAttuatore {
+public class CategoriaAttuatore implements Serializable {
     /**
      * nome della categoria di attuatore
      */
