@@ -1,5 +1,7 @@
 package inge.progetto;
 
+import java.io.Serializable;
+
 /**
  * Rappresenta l'informazione/misura che il sistema domotico acquisisce attaverso ogni singolo sensori dislocati
  * nelle sottounit&agrave; immobiliari soggette al controllo. Ciascuna informazione &egrave; identificata da un {@link #nome}
@@ -7,7 +9,7 @@ package inge.progetto;
  *
  * @author Parampal Singh, Mattia Nodari
  */
-public class Informazione {
+public class Informazione implements Serializable {
     private String nome;
     /**rappresentano il range/dominio entro cui cade il valore dell'informazione; hanno già dei
      * valori di default che possono poi essere modificati dal manutentore
