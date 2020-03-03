@@ -174,10 +174,22 @@ public class Main {
                             }
                         }
                         if (!presenteAttuatore) {
+                            if (!listaCategoriaAttuatori.isEmpty()) {
+                                System.out.println("...CATEGORIE ATTUALMENTE CREATE...");
+                                for (CategoriaAttuatore cA : listaCategoriaAttuatori) {
+                                    System.out.println("Nome Categoria Attuatori: " + cA.getNome());
+                                }
+                            }
                             String categoria = InputDati.leggiStringa("Inserisci la categoria in cui rientra questo attuatore: ");
                             for (CategoriaAttuatore cat : listaCategoriaAttuatori) {
                                 if (cat.getNome().equals(categoria)) {
                                     erroreCategoria = false;
+                                    if (!listaModalitaOperative.isEmpty()) {
+                                        System.out.println("...MODALITA' OPERATIVE ATTUALMENTE CREATE...");
+                                        for (ModalitaOperativa modalit : listaModalitaOperative) {
+                                            System.out.println("Nome modalità: " + modalit.getNome());
+                                        }
+                                    }
                                     String statoAttuale = InputDati.leggiStringa("Inserisci lo stato di default dell'attuatore: ");
                                     for (ModalitaOperativa mod : listaModalitaOperative) {
                                         if (mod.getNome().equals(statoAttuale)) {
