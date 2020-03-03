@@ -1,5 +1,7 @@
 package inge.progetto;
 
+import java.io.Serializable;
+
 /**
  * Rappresenta la modalit&agrave; operativa di una determinato {@link Attuatore}e di conseguenza lo stato dell'{@link Artefatto}
  * ad esso associato. Permettendo cosi ad un attuatore, attraverso una specifica modalit&agrave;, di comandare
@@ -9,7 +11,8 @@ package inge.progetto;
  *
  * @see Informazione
  */
-public class ModalitaOperativa extends Informazione{
+public class ModalitaOperativa extends Informazione
+                                implements Serializable {
 
     /**
      * Un valore intero unico, specificato dal manutentore, che permette di  avere una rappresentazione numerica

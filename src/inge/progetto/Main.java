@@ -5,6 +5,20 @@ import it.unibs.fp.mylib.*;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Principale punto d'avvio e funzionamento del sistema domotico. Svolge un ruolo di interfacciamento tra l'utente e la logica interna
+ * del sistema, permettendo all'utente di interagire con l'unita immobiliare e le sue sottounit&agrave;. Vi sono 2 tipi di utente: manutentore e
+ * fruitore. Il primo &egrave; un esponente dell&rsquo;azienda che installa l&rsquo;impianto; egli &egrave; deputato alla descrizione delle
+ * categorie di dispositivi utilizzabili e delle singole unit&agrave; immobiliari controllate dal
+ * sistema. Le unit&agrave; immobiliari possono avere diverse destinazioni d&rsquo;uso: residenziale,
+ * commerciale, produttiva ecc. Il secondo tipo di utente &egrave; una persona che usa il sistema
+ * installato per adattare le condizioni di una specifica unit&agrave; immobiliare alle esigenze
+ * connesse alla destinazione della stessa e/o espresse dalle persone in essa ospitate; ad
+ * esempio, pu&ograve; trattarsi di un inquilino di un appartamento o del responsabile delle
+ * condizioni ambientali interne di un capannone destinato all&rsquo;allevamento di pollame, ecc.
+ *
+ * @author Parampal Singh, Mattia Nodari
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -54,10 +68,12 @@ public class Main {
 
                             break;
                         case 3:
-                            if (unitaImmobiliare.getTipo().equals("")) {
+                            /*if (unitaImmobiliare.getTipo().equals("")) {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                             */
                             boolean categoriaPresenteSensore = false;
                             String nomeCategoriaSensore = InputDati.leggiStringa("\nInserisci nome della nuova categoria di sensori: ");
 
@@ -86,10 +102,12 @@ public class Main {
 
                             break;
                         case 4:
-                            if (unitaImmobiliare.getTipo().equals("")) {
+                            /*if (unitaImmobiliare.getTipo().equals("")) {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                             */
                             String nomeCategoriaAttuatore = InputDati.leggiStringa("\nInserisci nome della nuova categoria di attuatori: ");
                             boolean categoriaPresenteAttuatore = false;
                             for (CategoriaAttuatore a : listaCategoriaAttuatori) {
@@ -134,10 +152,12 @@ public class Main {
 
                             break;
                         case 6:
-                            if (unitaImmobiliare.getTipo().equals("")) {
+                            /*if (unitaImmobiliare.getTipo().equals("")) {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                             */
                             boolean presenteModalita = false;
                             String nuovaModalita = InputDati.leggiStringa("\nInserisci nuova modalità operativa: ");
                             for (ModalitaOperativa modalita : listaModalitaOperative) {
@@ -226,7 +246,7 @@ public class Main {
                             }
                             boolean presenzaNome = false;
                             boolean presenzaCate = false;
-                            System.out.println("");
+                            System.out.println();
                             if (!listaCategoriaAttuatori.isEmpty()) {
                                 System.out.println("...CATEGORIE ATTUALMENTE CREATE...");
                                 for (CategoriaAttuatore cA : listaCategoriaAttuatori) {
@@ -299,13 +319,14 @@ public class Main {
 
                             break;
                         case 10:
-                            boolean siArtefatto = false;
-                            boolean siSensore = false;
-                            boolean siAttuatore = false;
                             if (unitaImmobiliare.getTipo().equals("")) {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                            boolean siArtefatto = false;
+                            boolean siSensore = false;
+                            boolean siAttuatore = false;
                             if (listaSensori.isEmpty()) {
                                 System.out.println("Non sono stati definiti sensori. Impossibile proseguire con l'operazione");
                                 break;
@@ -314,7 +335,7 @@ public class Main {
                                 System.out.println("Non sono stati definiti attuatori. Impossibile proseguire con l'operazione");
                                 break;
                             }
-                            System.out.println("");
+                            System.out.println();
                             if (!unitaImmobiliare.getListaArtefatti().isEmpty()) {
                                 System.out.println("...ARTEFATTI ATTUALMENTE CREATI...");
                                 for (Artefatto ar : unitaImmobiliare.getListaArtefatti()) {
@@ -392,7 +413,7 @@ public class Main {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
-                            System.out.println("");
+                            System.out.println();
                             if (!unitaImmobiliare.getListaStanze().isEmpty()) {
                                 System.out.println("...STANZE ATTUALMENTE CREATE...");
                                 for (Stanza s : unitaImmobiliare.getListaStanze()) {
@@ -437,7 +458,7 @@ public class Main {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
-                            System.out.println("");
+                            System.out.println();
                             if (!unitaImmobiliare.getListaStanze().isEmpty()) {
                                 System.out.println("...STANZE ATTUALMENTE CREATE...");
                                 for (Stanza s : unitaImmobiliare.getListaStanze()) {
@@ -481,7 +502,7 @@ public class Main {
                                 break;
                             }
                             boolean siSen = false;
-                            System.out.println("");
+                            System.out.println();
                             if (!listaSensori.isEmpty()) {
                                 System.out.println("...SENSORI ATTUALMENTE CREATI...");
                                 for (Sensore s : listaSensori) {
@@ -507,7 +528,7 @@ public class Main {
                             }
                             boolean siAttua = false;
                             boolean siMod = false;
-                            System.out.println("");
+                            System.out.println();
                             if (!listaAttuatori.isEmpty()) {
                                 System.out.println("...ATTUATORI ATTUALMENTE CREATI...");
                                 for (Attuatore attr : listaAttuatori) {
@@ -548,10 +569,12 @@ public class Main {
                             break;
 
                         case 15:
-                            if (unitaImmobiliare.getTipo().equals("")) {
+                            /*if (unitaImmobiliare.getTipo().equals("")) {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                             */
 
                             int sceltaVisualizza;
                             do {
@@ -581,7 +604,7 @@ public class Main {
                                         }
                                         break;
                                     case 4:
-                                        System.out.println("");
+                                        System.out.println();
                                         if (listaSensori.isEmpty())
                                             System.out.println("Lista sensori attualmente vuota. E' necessario crearne di nuovi per utilizzare questa funzione");
                                         else {
@@ -598,7 +621,7 @@ public class Main {
 
                                         break;
                                     case 5:
-                                        System.out.println("");
+                                        System.out.println();
                                         if (listaAttuatori.isEmpty())
                                             System.out.println("Lista attuatori attualmente vuota. E' necessario crearne di nuovi per utilizzare questa funzione");
                                         else {
@@ -610,11 +633,11 @@ public class Main {
                                             System.out.println("Lista categoria attuatori attualmente vuota. E' necessario crearne di nuove per utilizzare questa funzione");
                                         else {
                                             for (CategoriaAttuatore catAtt : listaCategoriaAttuatori)
-                                                System.out.println("Nome categoria sensori: " + catAtt.getNome());
+                                                System.out.println("Nome categoria attuatori: " + catAtt.getNome());
                                         }
                                         break;
                                     case 6:
-                                        System.out.println("");
+                                        System.out.println();
                                         if (listaModalitaOperative.isEmpty())
                                             System.out.println("Lista modalità operatice attualmente vuota. E' necessario crearne di nuove per utilizzare questa funzione");
                                         else {
@@ -630,6 +653,15 @@ public class Main {
                             break;
 
                         case 16:
+                            if (listaCategoriaSensori.isEmpty()) {
+                                System.out.println("\n!XX! Non sono presenti categorie di sensori da salvare !XX!");
+                                break;
+                            }
+                            if (listaCategoriaAttuatori.isEmpty()) {
+                                System.out.println("\n!XX! Non sono presenti categorie di attuatori da salvare !XX!");
+                                break;
+                            }
+
                             try {
                                 FileOutputStream out = new FileOutputStream("categorieSens_Att");
                                 ObjectOutputStream s = new ObjectOutputStream(out);
@@ -676,7 +708,7 @@ public class Main {
                                 break;
                             }
                             boolean siSen = false;
-                            System.out.println("");
+                            System.out.println();
                             if (!listaSensori.isEmpty()) {
                                 System.out.println("...SENSORI ATTUALMENTE CREATI DAL MANUTENTORE...");
                                 for (Sensore s : listaSensori) {
@@ -702,7 +734,7 @@ public class Main {
                             }
                             boolean siAttua = false;
                             boolean siMod = false;
-                            System.out.println("");
+                            System.out.println();
                             if (!listaAttuatori.isEmpty()) {
                                 System.out.println("...ATTUATORI ATTUALMENTE CREATI DAL MANUTENTORE...");
                                 for (Attuatore attr : listaAttuatori) {
@@ -756,6 +788,11 @@ public class Main {
                                         System.out.println(unitaImmobiliare.visualizzaDescrizione());
                                         break;
                                     case 2:
+                                        if (unitaImmobiliare.getTipo().equals("")) {
+                                            System.out.println("Unità Immobiliare non creata. E' necessario che il manutentore ne definisca una prima di questa operazione");
+                                            break;
+                                        }
+
                                         if (unitaImmobiliare.getListaStanze().isEmpty()) {
                                             System.out.println("E' necessario che esista almeno una stanza prima di utilizzare questa funzione");
                                             break;
@@ -765,6 +802,11 @@ public class Main {
                                         }
                                         break;
                                     case 3:
+                                        if (unitaImmobiliare.getTipo().equals("")) {
+                                            System.out.println("Unità Immobiliare non creata. E' necessario che il manutentore ne definisca una prima di questa operazione");
+                                            break;
+                                        }
+
                                         if (unitaImmobiliare.getListaArtefatti().isEmpty()) {
                                             System.out.println("E' necessario che esista almeno un artefatto prima di utilizzare questa funzione");
                                             break;
@@ -774,7 +816,7 @@ public class Main {
                                         }
                                         break;
                                     case 4:
-                                        System.out.println("");
+                                        System.out.println();
                                         if (listaSensori.isEmpty())
                                             System.out.println("Il manutentore non ha creato nessun sensore");
                                         else {
@@ -791,7 +833,7 @@ public class Main {
 
                                         break;
                                     case 5:
-                                        System.out.println("");
+                                        System.out.println();
                                         if (listaAttuatori.isEmpty())
                                             System.out.println("Il manutentore non ha creato nessun attuatore");
                                         else {
