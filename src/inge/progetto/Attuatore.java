@@ -5,13 +5,23 @@ import java.util.ArrayList;
 /**
  * Rappresenta un attuatore ovvero un dispositivo ,tramite il quale, il sistema domotivo compiere determinate azioni
  * (accensione/spegnimento luce, regolazione temperatura, apertura/chiusura finestre) che influenzano il comportamento
- * delle sottounita da queste gestite. Ogni attuatore è definito da un {@link #nome}, una {@link #categoria} che ne
- * descrive inoltre tutte le possibili modalità operative che possono essere esibite da attuatori simili, e da uno
- * stato di attivazione che indica se è spento o acceso.
+ * delle sottounita da queste gestite. Ogni attuatore &egrave; definito da un {@link #nome}, una {@link #categoria} che ne
+ * descrive inoltre tutte le possibili modalit&agrave; operative che possono essere esibite da attuatori simili, e da uno
+ * stato di attivazione che indica se &egrave; spento o acceso.
+ *
+ * @author Parampal Singh, Mattia Nodari
  */
 public class Attuatore {
+
+    /**
+     * nome dell'attuatore
+     */
     private String nome;
 
+    /**
+     * Carattestica di associazione ad artefatto
+     */
+    private boolean singolo;
     /**
      * lista di artefatto comandato dall'attuatore
      */
@@ -25,28 +35,41 @@ public class Attuatore {
 
 
     /**
-     * Modalita operativa attualmente esibita dall'attuatore. Le possibili modalità operative
+     * Modalit&agrave; operativa attualmente esibita dall'attuatore. Le possibili modalit&agrave; operative
      * sono definite nella sua {@link #categoria}.
      */
     private String modalitaAttuale;
+    /**
+     * Lo stato(spento o acceso) dell'attuatore
+     */
     private boolean statoAttivazione;
 
-    public Attuatore(String nome, CategoriaAttuatore categoria, String modalitaAttuale) {
-        this.nome = nome;
+    public Attuatore(String nome, CategoriaAttuatore categoria, String modalitaAttuale, boolean singolo) {
+        this.nome = nome + "_" + categoria.getNome();
         this.categoria = categoria;
         this.modalitaAttuale = modalitaAttuale;
         this.statoAttivazione = true;
+        this.singolo = singolo;
         listaComandati = new ArrayList<>();
     }
 
+    /**Fornisce il nome dell'attuatpre
+     * @return  nome dell'attuatore
+     */
     public String getNome() {
         return nome;
     }
 
+    /**Permette di modificare il nome dell'attuatore
+     * @param nome nuovo nome da assegnare all'attuatore
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**Permette di ottenere la categoria a cui appartiene l'attuatore
+     * @return la categoria a cui appartiene l'attuatore
+     */
     public CategoriaAttuatore getCategoria() {
         return categoria;
     }
@@ -59,30 +82,39 @@ public class Attuatore {
     }
 
 
+    /**Permette di ottenere la lista degli artefatti comandati dall'attuatore
+     * @return la lista degli artefatti comandati dall'attuatore
+     */
     public ArrayList<Artefatto> getListaComandati() {
         return listaComandati;
     }
 
+    /**Aggiunge l'artefatto alla lista degli artefatti comandati dall'attuatore
+     * @param art nuovo artefatto che si desidera comandare attraverso l'attuatore
+     */
     public void aggiungiArtefatto(Artefatto art) {
         listaComandati.add(art);
     }
 
+    /**Permette di specificare la lista di artefatti che si desiderano comandare attraverso l'attuatore
+     * @param listaComandati nuova lista di artefatti comandati dall'attuatore
+     */
     public void setListaComandati(ArrayList<Artefatto> listaComandati) {
         this.listaComandati = listaComandati;
     }
 
-    /**Fornisce il nome dell' attuale modalità operativa({@link #modalitaAttuale}) esibita dall'attuatore
+    /**Fornisce il nome dell' attuale modalit&agrave; operativa({@link #modalitaAttuale}) esibita dall'attuatore
      * @return nome della modalita operativa attuale
      */
     public String getModalitaAttuale() {
         return modalitaAttuale;
     }
 
-    /** Specifica una nuova modalità operativa per l'attuatore controllando prima
-     * che questa sia possibile(definita nel suo set di modalità operative).
+    /** Specifica una nuova modalit&agrave; operativa per l'attuatore controllando prima
+     * che questa sia possibile(definita nel suo set di modalit&agrave; operative).
      * Inoltre determina un cambiamento dello stato degli stati artefatti comandati
      *
-     * @param nuovaModalita nome della nuova modalità operativa
+     * @param nuovaModalita nome della nuova modalit&agrave; operativa
      */
     public void setModalitaAttuale(String nuovaModalita) {
         if(this.modalitaAttuale.equals(nuovaModalita)) {
@@ -103,8 +135,8 @@ public class Attuatore {
     }
 
 
-    /** Modifica la modalità operatica/stato degli artefatti comandati dall'attuatore
-     * @param mod nuova modalità operativa da assegnare agli artefatti comandati dall'attuatore
+    /** Modifica la modalit&agrave; operatica/stato degli artefatti comandati dall'attuatore
+     * @param mod nuova modalit&agrave; operativa da assegnare agli artefatti comandati dall'attuatore
      */
     private void modificaArtefatti(ModalitaOperativa mod) {
         if (listaComandati.isEmpty()) {
@@ -129,5 +161,9 @@ public class Attuatore {
      */
     public void setStatoAttivazione(boolean statoAttivazione) {
         this.statoAttivazione = statoAttivazione;
+    }
+
+    public boolean isSingolo() {
+        return singolo;
     }
 }

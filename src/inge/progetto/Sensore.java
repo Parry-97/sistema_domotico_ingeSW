@@ -1,14 +1,13 @@
 package inge.progetto;
 
 /**
- * Permette di modellizare un sensore gestibile da un sistema domotico. Il sensore e identificato da un {@link #nome},
- * {@link #categoria} e dalla misura che questo rileva({@link #rilevazione}), la quale può essere lo 'stato' di un
+ * Permette di modellizare un sensore gestibile da un sistema domotico. Il sensore &egrave; identificato da un {@link #nome},
+ * {@link #categoria} e dalla misura che questo rileva({@link #rilevazione}), la quale pu&ograve; essere lo 'stato' di un
  * {@link Artefatto} da questi monitorato o la misura di una grandezza fisica associata ad una {@link Stanza} (es. temperatura o pressione).
  * Si definiscono quindi, attraverso la sua {@link #categoria}, sensori di tipo 'fisici' e 'sensori di stato' che monitorano
  * rispettivamente una stanza o un artefatto.
  *
  * @author Parampal Singh, Mattia Nodari
- * @version 1
  */
 public class Sensore {
     /** nome del sensore*/
@@ -20,20 +19,20 @@ public class Sensore {
     /** informazione o misura che il sensore rileva (guarda {@link Informazione})*/
     private Informazione rilevazione;
 
-    /** stato del sensore ovvero se questi è abilitato o meno, attivo o spento*/
+    /** stato del sensore ovvero se questi &egrave; abilitato o meno, attivo o spento*/
     private boolean statoAttivazione;
 
 
     /**
      * Costruttore della classe Sensore.
-     * l'informazione inizialmente associata è di natura casuale(default)
+     * l'informazione inizialmente associata &egrave; di natura casuale(default)
      * @param nome nome da attribuire al sensore
      * @param categoria categoria di sensore a cui questo 'appartiene'
      * @see CategoriaSensore
      * @see Informazione
      */
     public Sensore(String nome, CategoriaSensore categoria) {
-        this.nome = nome;
+        this.nome = nome + "_" + categoria.getNome();
         this.categoria = categoria;
         this.rilevazione = categoria.getInfoRilevabile();
         this.statoAttivazione = true;
@@ -67,7 +66,7 @@ public class Sensore {
     /** Permette di specificare esplicitamente l'informazione rilevabile dal sensore. Utilizzata principalmente per sensori
      *  che monitorano artefatti, in quanto devono 'essere associati' a quest'ultimi per tener traccia del loro comportamento.
      *  Mentre invece sensori di natura 'fisica' non sono associati a particolari artefatti e misurano autonomamente una grandezza
-     *  come temperatura o pressione ed è quindi vietato alterarne il contenuto informativo. Il tipo di sensore e le informazioni
+     *  come temperatura o pressione ed &egrave; quindi vietato alterarne il contenuto informativo. Il tipo di sensore e le informazioni
      *  da questo rilevabili sono definite nella sua categoria (vedi {@link CategoriaSensore})
      *
      * @param rilevazione nuova informazione che il sensore rileva
@@ -80,8 +79,8 @@ public class Sensore {
             this.rilevazione = rilevazione;
     }
 
-    /**Permette di conoscere lo stato di attivazione del sensore ovvero se è accesso o spento
-     * @return vero se il sensore è accesso/attivo falso altrimenti
+    /**Permette di conoscere lo stato di attivazione del sensore ovvero se &egrave; accesso o spento
+     * @return vero se il sensore &egrave; accesso/attivo falso altrimenti
      */
     public boolean isAttivo() {
         return statoAttivazione;
