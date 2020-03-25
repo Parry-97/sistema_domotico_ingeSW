@@ -1,7 +1,6 @@
 package inge.progetto;
 
 import it.unibs.fp.mylib.*;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -68,12 +67,6 @@ public class Main {
 
                             break;
                         case 3:
-                            /*if (unitaImmobiliare.getTipo().equals("")) {
-                                System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
-                                break;
-                            }
-
-                             */
                             boolean categoriaPresenteSensore = false;
                             String nomeCategoriaSensore = InputDati.leggiStringa("\nInserisci nome della nuova categoria di sensori: ");
 
@@ -102,12 +95,6 @@ public class Main {
 
                             break;
                         case 4:
-                            /*if (unitaImmobiliare.getTipo().equals("")) {
-                                System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
-                                break;
-                            }
-
-                             */
                             String nomeCategoriaAttuatore = InputDati.leggiStringa("\nInserisci nome della nuova categoria di attuatori: ");
                             boolean categoriaPresenteAttuatore = false;
                             for (CategoriaAttuatore a : listaCategoriaAttuatori) {
@@ -152,12 +139,6 @@ public class Main {
 
                             break;
                         case 6:
-                            /*if (unitaImmobiliare.getTipo().equals("")) {
-                                System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
-                                break;
-                            }
-
-                             */
                             boolean presenteModalita = false;
                             String nuovaModalita = InputDati.leggiStringa("\nInserisci nuova modalità operativa: ");
                             for (ModalitaOperativa modalita : listaModalitaOperative) {
@@ -179,23 +160,24 @@ public class Main {
                                 System.out.println("Non sono presenti categorie di attuatori. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                            if (unitaImmobiliare.getTipo().equals("")) {
+                            System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
+                            break;
+                            }
+
                             String nuovoAttuatore = InputDati.leggiStringa("\nInserisci nome nuovo attuatore: ");
                             boolean presenteAttuatore = false;
                             boolean erroreCategoria = true;
                             boolean erroreStato = true;
 
-                            if (unitaImmobiliare.getTipo().equals("")) {
-                                System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
-                                break;
-                            }
                             for (Attuatore a : listaAttuatori) {
-                                if (a.getNome().equals(nuovoAttuatore)) {
+                                if (a.getNome().equals(nuovoAttuatore + "_" + a.getCategoria().getNome())) {
                                     System.out.println("Esiste già un attuatore con lo stesso nome. E' necessario avere nomi differenti.");
                                     presenteAttuatore = true;
                                     break;
                                 }
                             }
-
 
                             if (!presenteAttuatore) {
 
@@ -217,7 +199,6 @@ public class Main {
                                                 System.out.println("Nome modalità: " + modalit.getNome());
                                             }
                                         }
-
 
                                         String statoAttuale = InputDati.leggiStringa("Inserisci lo stato di default dell'attuatore: ");
                                         for (ModalitaOperativa mod : listaModalitaOperative) {
@@ -281,16 +262,23 @@ public class Main {
                                 System.out.println("La modalità operativa che si vuole aggiungere non è ancora stata creata");
                                 break;
                             }
+
                             break;
                         case 9:
                             if (unitaImmobiliare.getTipo().equals("")) {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                            if (listaCategoriaSensori.isEmpty()) {
+                                System.out.println("Non sono presenti categorie di sensori. E' necessario definirla prima di questa operazione");
+                                break;
+                            }
+
                             boolean presenzaSensore = false;
                             String nomeSensore = InputDati.leggiStringa("\nInserisci il nome del sensore da aggiungere: ");
                             for (Sensore sens : listaSensori) {
-                                if (sens.getNome().equals(nomeSensore)) {
+                                if (sens.getNome().equals(nomeSensore+"_"+sens.getCategoria().getNome())) {
                                     System.out.println("Esiste già un sensore con lo stesso nome. E' necessario avere nomi differenti.");
                                     presenzaSensore = true;
                                     break;
@@ -331,10 +319,17 @@ public class Main {
                                 System.out.println("Non sono stati definiti sensori. Impossibile proseguire con l'operazione");
                                 break;
                             }
+
                             if (listaAttuatori.isEmpty()) {
                                 System.out.println("Non sono stati definiti attuatori. Impossibile proseguire con l'operazione");
                                 break;
                             }
+
+                            if (unitaImmobiliare.getListaArtefatti().isEmpty()) {
+                                System.out.println("Non sono stati definiti artefatti. Impossibile proseguire con l'operazione");
+                                break;
+                            }
+
                             System.out.println();
                             if (!unitaImmobiliare.getListaArtefatti().isEmpty()) {
                                 System.out.println("...ARTEFATTI ATTUALMENTE CREATI...");
@@ -413,6 +408,17 @@ public class Main {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                            if (unitaImmobiliare.getListaStanze().isEmpty()) {
+                                System.out.println("Nessuna stanza è stata creata. E' necessario definirla prima di questa operazione");
+                                break;
+                            }
+
+                            if (unitaImmobiliare.getListaArtefatti().isEmpty()) {
+                                System.out.println("Non sono stati definiti artefatti. Impossibile proseguire con l'operazione");
+                                break;
+                            }
+
                             System.out.println();
                             if (!unitaImmobiliare.getListaStanze().isEmpty()) {
                                 System.out.println("...STANZE ATTUALMENTE CREATE...");
@@ -458,6 +464,17 @@ public class Main {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                            if (unitaImmobiliare.getListaStanze().isEmpty()) {
+                                System.out.println("Nessuna stanza è stata creata. E' necessario definirla prima di questa operazione");
+                                break;
+                            }
+
+                            if (listaSensori.isEmpty()) {
+                                System.out.println("Non sono stati definiti sensori. Impossibile proseguire con l'operazione");
+                                break;
+                            }
+
                             System.out.println();
                             if (!unitaImmobiliare.getListaStanze().isEmpty()) {
                                 System.out.println("...STANZE ATTUALMENTE CREATE...");
@@ -501,6 +518,12 @@ public class Main {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+
+                            if (listaSensori.isEmpty()) {
+                                System.out.println("Non sono stati definiti sensori. Impossibile proseguire con l'operazione");
+                                break;
+                            }
+
                             boolean siSen = false;
                             System.out.println();
                             if (!listaSensori.isEmpty()) {
@@ -526,6 +549,12 @@ public class Main {
                                 System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
                                 break;
                             }
+                            
+                            if (listaAttuatori.isEmpty()) {
+                                System.out.println("Non sono stati definiti attuatori. Impossibile proseguire con l'operazione");
+                                break;
+                            }
+
                             boolean siAttua = false;
                             boolean siMod = false;
                             System.out.println();
@@ -567,14 +596,7 @@ public class Main {
                             }
 
                             break;
-
                         case 15:
-                            /*if (unitaImmobiliare.getTipo().equals("")) {
-                                System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
-                                break;
-                            }
-
-                             */
 
                             int sceltaVisualizza;
                             do {
@@ -583,9 +605,17 @@ public class Main {
                                 sceltaVisualizza = InputDati.leggiIntero("Seleziona funzionalità: ");
                                 switch (sceltaVisualizza) {
                                     case 1:
+                                        if (unitaImmobiliare.getTipo().equals("")) {
+                                            System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
+                                            break;
+                                        }
                                         System.out.println(unitaImmobiliare.visualizzaDescrizione());
                                         break;
                                     case 2:
+                                        if (unitaImmobiliare.getTipo().equals("")) {
+                                            System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
+                                            break;
+                                        }
                                         if (unitaImmobiliare.getListaStanze().isEmpty()) {
                                             System.out.println("E' necessario creare almeno una stanza prima di utilizzare questa funzione");
                                             break;
@@ -595,6 +625,10 @@ public class Main {
                                         }
                                         break;
                                     case 3:
+                                        if (unitaImmobiliare.getTipo().equals("")) {
+                                            System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
+                                            break;
+                                        }
                                         if (unitaImmobiliare.getListaArtefatti().isEmpty()) {
                                             System.out.println("E' necessario creare almeno un artefatto prima di utilizzare questa funzione");
                                             break;
@@ -604,6 +638,10 @@ public class Main {
                                         }
                                         break;
                                     case 4:
+                                        if (unitaImmobiliare.getTipo().equals("")) {
+                                            System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
+                                            break;
+                                        }
                                         System.out.println();
                                         if (listaSensori.isEmpty())
                                             System.out.println("Lista sensori attualmente vuota. E' necessario crearne di nuovi per utilizzare questa funzione");
@@ -621,6 +659,10 @@ public class Main {
 
                                         break;
                                     case 5:
+                                        if (unitaImmobiliare.getTipo().equals("")) {
+                                            System.out.println("Unità Immobiliare non creata. E' necessario definirla prima di questa operazione");
+                                            break;
+                                        }
                                         System.out.println();
                                         if (listaAttuatori.isEmpty())
                                             System.out.println("Lista attuatori attualmente vuota. E' necessario crearne di nuovi per utilizzare questa funzione");
@@ -639,7 +681,7 @@ public class Main {
                                     case 6:
                                         System.out.println();
                                         if (listaModalitaOperative.isEmpty())
-                                            System.out.println("Lista modalità operatice attualmente vuota. E' necessario crearne di nuove per utilizzare questa funzione");
+                                            System.out.println("Lista modalità operative attualmente vuota. E' necessario crearne di nuove per utilizzare questa funzione");
                                         else {
                                             for (ModalitaOperativa mod : listaModalitaOperative)
                                                 System.out.println("Nome modalità operativa: " + mod.getNome());
@@ -674,8 +716,8 @@ public class Main {
                                 e.printStackTrace();
                                 System.out.println("XXX Errore durante salvataggio su file XXX ");
                             }
-                            break;
 
+                            break;
                         case 17:
                             FileInputStream in;
                             try {
@@ -688,10 +730,11 @@ public class Main {
                                 e.printStackTrace();
                                 System.out.println("XXX Errore durante caricamento da file XXX");
                             }
-                            break;
 
+                            break;
                         case 0:
                             System.out.println("USCITA DAL SISTEMA MANUTENTORE.\n");
+
                             break;
                     }
                 } while (caso != 0);
@@ -800,6 +843,7 @@ public class Main {
                                         for (Stanza stanzetta : unitaImmobiliare.getListaStanze()) {
                                             System.out.println(stanzetta.visualizzaDisposizione());
                                         }
+
                                         break;
                                     case 3:
                                         if (unitaImmobiliare.getTipo().equals("")) {
@@ -814,6 +858,7 @@ public class Main {
                                         for (Artefatto artefattino : unitaImmobiliare.getListaArtefatti()) {
                                             System.out.println(artefattino.visualizzaDispositivi());
                                         }
+
                                         break;
                                     case 4:
                                         System.out.println();
@@ -847,9 +892,11 @@ public class Main {
                                             for (CategoriaAttuatore catAtt : listaCategoriaAttuatori)
                                                 System.out.println("Nome categoria sensori: " + catAtt.getNome());
                                         }
+
                                         break;
                                     case 0:
                                         System.out.println("USCITA DALLA FUNZIONE DI VISUALIZZAZIONE\n");
+
                                         break;
                                 }
                             } while (sceltaVisualizza != 0);

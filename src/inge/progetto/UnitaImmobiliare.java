@@ -118,18 +118,24 @@ public class UnitaImmobiliare {
      */
     public String visualizzaDescrizione() {
         String visualizza = "Tipo unità immobiliare: " + this.getTipo() + ", è costituita dalle seguenti stanze:\n";
-
-        for (Stanza stanza : listaStanze) {
-            visualizza += stanza.visualizzaDisposizione();
-        }
+        if(!listaStanze.isEmpty()) {
+            for (Stanza stanza : listaStanze) {
+                visualizza += stanza.visualizzaDisposizione();
+            }
+        } else
+            visualizza += "!!! Non sono presenti stanze per questa unità immobiliare !!!\n";
 
         visualizza += "\nArtefatti esterni all'unità immobiliare:\n";
-        for(Stanza stanza : listaStanze) {
-            for (Artefatto artefatto : listaArtefatti) {
-                if(!stanza.getListaArtefatti().contains(artefatto))
-                    visualizza += artefatto.visualizzaDispositivi();
+        if(!listaArtefatti.isEmpty()) {
+            for (Stanza stanza : listaStanze) {
+                for (Artefatto artefatto : listaArtefatti) {
+                    if (!stanza.getListaArtefatti().contains(artefatto))
+                        visualizza += artefatto.visualizzaDispositivi();
+                }
             }
-        }
+        } else
+            visualizza += "!!! Non sono presenti artefatti esterni all'unità immobiliare !!!\n";
+
         return visualizza;
     }
 
