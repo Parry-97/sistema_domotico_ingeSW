@@ -148,19 +148,24 @@ public class Artefatto {
      */
     public String visualizzaDispositivi() {
         String visualizza = "Nome Artefatto: " + this.getNome() + ", lista attuatori che lo comandano:\n";
-
-        for (Attuatore a: listaAttuatori) {
-            visualizza +=  a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale() + "\n";
-        }
+        if (!listaAttuatori.isEmpty()) {
+            for (Attuatore a : listaAttuatori) {
+                visualizza += a.getNome() + ", categoria: " + a.getCategoria().getNome() + ", modalità attuale: " + a.getModalitaAttuale() + "\n";
+            }
+        } else
+            visualizza += "!!! Questo artefatto non è pilotato da nessun attuatore !!!\n";
 
         visualizza += "E dispone dei seguenti sensori:\n";
-        for (Sensore s: listaSensori) {
-            visualizza +=  s.getNome() + ", categoria: " + s.getCategoria().getNome();
-            if (s.getCategoria().isFisico())
-                 visualizza += "Misura: " +  s.getRilevazione().getValore() + "\n";
-            else
-                visualizza += "Stato: " + s.getRilevazione().getNome() + "\n";
-        }
+        if (!listaSensori.isEmpty()) {
+            for (Sensore s : listaSensori) {
+                visualizza += s.getNome() + ", categoria: " + s.getCategoria().getNome();
+                if (s.getCategoria().isFisico())
+                    visualizza += "Misura: " + s.getRilevazione().getValore() + "\n";
+                else
+                    visualizza += "Stato: " + s.getRilevazione().getNome() + "\n";
+            }
+        } else
+            visualizza += "!!! Non sono associati sensori per questo artefatto !!!\n";
 
         return visualizza + "\n";
     }

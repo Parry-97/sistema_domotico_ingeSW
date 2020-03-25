@@ -106,14 +106,20 @@ public class Stanza {
     public String visualizzaDisposizione() {
         String visualizza = "Nome Stanza: " + this.getNome() + ", essa possiede:\n";
 
-        for (Artefatto a: listaArtefatti) {
-            visualizza +=  a.visualizzaDispositivi();
-        }
+        if(!listaArtefatti.isEmpty()) {
+            for (Artefatto a : listaArtefatti) {
+                visualizza += a.visualizzaDispositivi();
+            }
+        } else
+            visualizza += "!!! Non sono stati definiti artefatti al momento !!!\n";
 
-        for (Sensore s : listaSensori) {
-            visualizza += "Nome Sensore: "+ s.getNome() + " | " + "Categoria: " + s.getCategoria().getNome() + " | " + "Rilevazione: " + s.getRilevazione().getValore()+"\n";
-        }
+        if(!listaSensori.isEmpty()) {
+            for (Sensore s : listaSensori) {
+                visualizza += "Nome Sensore: " + s.getNome() + " | " + "Categoria: " + s.getCategoria().getNome() + " | " + "Rilevazione: " + s.getRilevazione().getValore() + "\n";
+            }
+        } else
+            visualizza += "!!! Non sono stati assegnati sensori a questa stanza !!!\n";
+
         return visualizza;
-
     }
 }
