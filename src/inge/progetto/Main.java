@@ -591,7 +591,7 @@ public class Main {
                                 break;
                             }
                             if (!siMod) {
-                                System.out.println("La modalità inserita non esite. E' necessario crearla");
+                                System.out.println("La modalità inserita non esiste. E' necessario crearla");
                                 break;
                             }
 
