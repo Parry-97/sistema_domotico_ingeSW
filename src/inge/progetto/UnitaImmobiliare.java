@@ -117,26 +117,31 @@ public class UnitaImmobiliare {
      * @return stringa descrittiva dell'intera unit&agrave; immobiliare
      */
     public String visualizzaDescrizione() {
-        String visualizza = "Tipo unità immobiliare: " + this.getTipo() + ", è costituita dalle seguenti stanze:\n";
+        StringBuilder visualizza = new StringBuilder("Tipo unità immobiliare: " + this.getTipo() + ", è costituita dalle seguenti stanze:\n");
         if(!listaStanze.isEmpty()) {
             for (Stanza stanza : listaStanze) {
-                visualizza += stanza.visualizzaDisposizione();
+                visualizza.append(stanza.visualizzaDisposizione());
             }
         } else
-            visualizza += "!!! Non sono presenti stanze per questa unità immobiliare !!!\n";
+            visualizza.append("!!! Non sono presenti stanze per questa unità immobiliare !!!\n");
 
-        visualizza += "\nArtefatti esterni all'unità immobiliare:\n";
+        visualizza.append("\nArtefatti esterni all'unità immobiliare:\n");
         if(!listaArtefatti.isEmpty()) {
-            for (Stanza stanza : listaStanze) {
-                for (Artefatto artefatto : listaArtefatti) {
-                    if (!stanza.getListaArtefatti().contains(artefatto))
-                        visualizza += artefatto.visualizzaDispositivi();
+            for (Artefatto artefatto : listaArtefatti) {
+                boolean trovato = false;
+                for(Stanza stanza : listaStanze) {
+                    if(stanza.getListaArtefatti().contains(artefatto)) {
+                        trovato = true;
+                        break;
+                    }
                 }
+                if(!trovato)
+                    visualizza.append(artefatto.visualizzaDispositivi()).append("\n");
             }
         } else
-            visualizza += "!!! Non sono presenti artefatti esterni all'unità immobiliare !!!\n";
+            visualizza.append("!!! Non sono presenti artefatti esterni all'unità immobiliare !!!\n");
 
-        return visualizza;
+        return visualizza.toString();
     }
 
 }
