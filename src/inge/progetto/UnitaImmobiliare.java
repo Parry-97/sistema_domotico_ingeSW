@@ -49,25 +49,11 @@ public class UnitaImmobiliare {
         return listaStanze;
     }
 
-    /**Permette di specificare lista/insieme di stanze in cui &egrave; articolata l'unit&agrave; immobiliare
-     * @param listaStanze lista di stanze da assegnare all'untita immobiliare
-     */
-    public void setListaStanze(ArrayList<Stanza> listaStanze) {
-        this.listaStanze = listaStanze;
-    }
-
     /**Permette di ottenere la lista degli artefatti presenti nell'unit&agrave; immobiliare e non collocati in stanze.
      * @return lista di artefatti nell'unit&agrave; immobiliare
      */
     public ArrayList<Artefatto> getListaArtefatti() {
         return listaArtefatti;
-    }
-
-    /**Permette di specificare la lista di artefatti 'liberi'(non collocati in stanze) presenti nell'unit&agrave; immobiliare
-     * @param listaArtefatti lista di artefatti 'liberi' di cui &egrave; costituita l'unit&agrave; immobiliare
-     */
-    public void setListaArtefatti(ArrayList<Artefatto> listaArtefatti) {
-        this.listaArtefatti = listaArtefatti;
     }
 
     /**Permette di ottenere il tipo/destinazione d'uso dell'unit&agrave; immmobiliare

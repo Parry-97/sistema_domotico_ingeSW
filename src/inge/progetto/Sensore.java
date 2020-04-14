@@ -59,6 +59,9 @@ public class Sensore {
         return categoria;
     }
 
+    /**Permette di ottenere la rilevazione/misura dell'informazione
+     * @return valore/misura dell'informazione
+     */
     public Informazione getRilevazione() {
         return rilevazione;
     }
@@ -77,19 +80,5 @@ public class Sensore {
             System.out.println("Non è possibile alterare le rilevazioni del sensore! \n");
         else
             this.rilevazione = rilevazione;
-    }
-
-    /**Permette di conoscere lo stato di attivazione del sensore ovvero se &egrave; accesso o spento
-     * @return vero se il sensore &egrave; accesso/attivo falso altrimenti
-     */
-    public boolean isAttivo() {
-        return statoAttivazione;
-    }
-
-    /**Permette di impostare lo stato di attivazione del sensore
-     * @param statoAttivazione lo stato del sensore (acceso=True, spento=False)
-     */
-    public void setStatoAttivazione(boolean statoAttivazione) {
-        this.statoAttivazione = statoAttivazione;
     }
 }

@@ -28,7 +28,7 @@ public class ModalitaOperativa extends Informazione
      * @param valore valore numerico della modalit&agrave; operativa
      */
     public ModalitaOperativa(String nome, int valore) {
-        super(nome); //Costruttore della classe padre (Informazione)
+        super(nome);
         this.valore = valore;
     }
 

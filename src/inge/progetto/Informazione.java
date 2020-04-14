@@ -10,11 +10,18 @@ import java.io.Serializable;
  * @author Parampal Singh, Mattia Nodari
  */
 public class Informazione implements Serializable {
+
+    /**
+     * nome dell'informazione
+     */
     private String nome;
-    /**rappresentano il range/dominio entro cui cade il valore dell'informazione; hanno già dei
-     * valori di default che possono poi essere modificati dal manutentore
+
+    /**estremo superiore del dominio di valori assunti dall'informazione
      */
     private int  VALORE_MAX = Integer.MAX_VALUE;
+
+    /**estremo inferiore del dominio di valori assunti dall'informazione
+     */
     private int VALORE_MIN = 0;
 
 

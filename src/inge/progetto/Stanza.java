@@ -53,14 +53,6 @@ public class Stanza {
         this.nome = nome;
     }
 
-    /**Permette di ottenere la lista di sensori associati alla stanza
-     * @return la lista di sensori associati alla stanza e in essa dislocati
-     */
-    public ArrayList<Sensore> getListaSensori() {
-        return listaSensori;
-    }
-
-
     /**Fornisce la lista degli artefatti presenti nella stanza
      * @return la lista degli artefatti nella stanza
      */

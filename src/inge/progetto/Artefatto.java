@@ -12,6 +12,11 @@ import java.util.ArrayList;
  * @author Parampal Singh, Mattia Nodari
  */
 public class Artefatto {
+
+
+    /**
+     * nome dell'artefatto
+     */
     private String nome;
     /**
      * Rappresenta lo 'stato attuale' dell'artefatto, monitorato da sensori({@link #listaSensori}) e comandato
@@ -38,8 +43,8 @@ public class Artefatto {
     public Artefatto(String nome, ModalitaOperativa statoAttuale) {
         this.statoAttuale = statoAttuale;
         this.nome = nome;
-        this.listaSensori = new ArrayList<Sensore>();
-        this.listaAttuatori = new ArrayList<Attuatore>();
+        this.listaSensori = new ArrayList<>();
+        this.listaAttuatori = new ArrayList<>();
     }
 
     /**Fornisce lo stato attuale dell'artefatto
@@ -73,33 +78,12 @@ public class Artefatto {
         this.nome = nome;
     }
 
-    /**Permette di ottenere la lista di sensori associati all'artefatto
-     * @return la lista di sensori associati all'artefatto
-     */
-    public ArrayList<Sensore> getListaSensori() {
-        return listaSensori;
-    }
-
-    /**Permette di specificare la lista di sensori collegati all'artefatto
-     * @param listaSensori nuova lista di sensori da collegare all'artefatto
-     */
-    public void setListaSensori(ArrayList<Sensore> listaSensori) {
-        this.listaSensori = listaSensori;
-    }
-
     /**
      * Fornisce la lista di attuatori associati all'artefatto
      * @return la lista di attuatori associati all'artefatto
      */
     public ArrayList<Attuatore> getListaAttuatori() {
         return listaAttuatori;
-    }
-
-    /**Permette di specificare la lista/insieme di attuatori che comandano l'artefatto
-     * @param listaAttuatori lista di attuatori da associare all'artefatto
-     */
-    public void setListaAttuatori(ArrayList<Attuatore> listaAttuatori) {
-        this.listaAttuatori = listaAttuatori;
     }
 
     /**Permette di associare un sensore all'artefatto cossiche questi possa inoltre cominiciare a monitorare il suo comportamento,

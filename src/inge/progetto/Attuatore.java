@@ -81,14 +81,6 @@ public class Attuatore {
         this.categoria = categoria;
     }
 
-
-    /**Permette di ottenere la lista degli artefatti comandati dall'attuatore
-     * @return la lista degli artefatti comandati dall'attuatore
-     */
-    public ArrayList<Artefatto> getListaComandati() {
-        return listaComandati;
-    }
-
     /**Aggiunge l'artefatto alla lista degli artefatti comandati dall'attuatore
      * @param art nuovo artefatto che si desidera comandare attraverso l'attuatore
      */
@@ -100,13 +92,6 @@ public class Attuatore {
                 break;
             }
         }
-    }
-
-    /**Permette di specificare la lista di artefatti che si desiderano comandare attraverso l'attuatore
-     * @param listaComandati nuova lista di artefatti comandati dall'attuatore
-     */
-    public void setListaComandati(ArrayList<Artefatto> listaComandati) {
-        this.listaComandati = listaComandati;
     }
 
     /**Fornisce il nome dell' attuale modalit&agrave; operativa({@link #modalitaAttuale}) esibita dall'attuatore
@@ -131,8 +116,7 @@ public class Attuatore {
             if(mod.getNome().equals(nuovaModalita)) {
                 this.modalitaAttuale = nuovaModalita;
 
-                modificaArtefatti(mod); //conseguente cambiamento di stato degli artefatti comandati
-
+                modificaArtefatti(mod);
                 System.out.println("Nuova modalità");
                 return;
             }
@@ -155,20 +139,9 @@ public class Attuatore {
         }
     }
 
-    /**Fornisce lo stato di attivazione dell'attuatore(accesso o spento)
-     * @return true se l'attuatore è acceso e false se è spento
+    /**Permette di conoscere caratteristica di associazione dell'attuatore ovvero se questo può essere associato a uno o più artefatti
+     * @return true se ha associazione singol, false altrimenti
      */
-    public boolean getStatoAttivazione() {
-        return statoAttivazione;
-    }
-
-    /** Permette di 'attivare' il dispositivo o specificare se è attivo o spento
-     * @param statoAttivazione nuovo stato dell'attuatore(true=Acceso, false=Spento)
-     */
-    public void setStatoAttivazione(boolean statoAttivazione) {
-        this.statoAttivazione = statoAttivazione;
-    }
-
     public boolean isSingolo() {
         return singolo;
     }

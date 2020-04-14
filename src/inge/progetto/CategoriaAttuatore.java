@@ -52,18 +52,6 @@ public class CategoriaAttuatore implements Serializable {
         this.nome = nome;
     }
 
-    /**Fornisce il testo libero per la categoria
-     * @return testo libero della categoria
-     */
-    public String getTestoLibero() {
-        return testoLibero;
-    }
-
-    /*public void setTestoLibero(String testoLibero) {
-        this.testoLibero = testoLibero;
-    }
-     */
-
     /**Fornisce l'insieme delle modalit&agrave; operative esibite da attuatori appartenenti alla categoria
      * @return lista di {@link #modalita} operative
      */
@@ -88,16 +76,4 @@ public class CategoriaAttuatore implements Serializable {
 
     }
 
-    /**Fornisce una descrizione in formato testuale della categoria
-     * @return una stringa descrittiva per la categoria
-     */
-    public String visualizzaCategoriaAttuatore() {
-        String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + this.getTestoLibero() + ", lista modalità operative:\n";
-
-        for (ModalitaOperativa lista: modalita) {
-            visualizza +=  lista.getNome() + "\n";
-        }
-
-        return visualizza;
-    }
 }

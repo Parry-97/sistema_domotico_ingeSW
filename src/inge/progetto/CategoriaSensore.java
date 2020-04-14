@@ -60,33 +60,6 @@ public class CategoriaSensore implements Serializable {
         this.nome = nome;
     }
 
-    /**Fornisce il testo libero associato alla categoria di sensore
-     * @return testo libero relativo alla categoria di sensore
-     */
-    public String getTestolibero() {
-        return testolibero;
-    }
-
-    /**Permette di specificare/modificare il testo libero della categoria
-     * @param testolibero nuovo testo libero da assegnare alla categoria
-     */
-    public void setTestolibero(String testolibero) {
-        this.testolibero = testolibero;
-    }
-
-    /**Permette di ottenere una rappresentazione testuale delle caratteristiche della categoria
-     * @return stringa descrittiva per la categoria
-     */
-    public String visualizzaCategoriaSensore() {
-        String visualizza = "Nome Categoria: " + this.getNome() + ", testo libero: " + this.getTestolibero() + ", RILEVAZIONIIIIII\n";
-/*
-        for (ModalitaOperativa lista: modalita) {
-            visualizza +=  lista.getNome() + "\n";
-        }
-*/
-        return visualizza;
-    }
-
     /**Fornisce l'informazione rilevabile da sensori di questa categoria
      * @return l'informazione rilevabile da sensori della stessa categoria
      */
@@ -108,12 +81,5 @@ public class CategoriaSensore implements Serializable {
      */
     public boolean isFisico() {
         return fisico;
-    }
-
-    /**Permette di specificare la natura della categoria di sensori
-     * @param fisico valore di flag che definisce la natura 'fisica' dei sensori della categoria
-     */
-    public void setFisico(boolean fisico) {
-        this.fisico = fisico;
     }
 }
