@@ -762,7 +762,6 @@ public class Main {
                                 listaCategoriaSensori = (ArrayList<CategoriaSensore>) s.readObject();
                                 System.out.println("*** Ripristino da file è andato a buon fine ***");
                             } catch (IOException | ClassNotFoundException e) {
-                                e.printStackTrace();
                                 System.out.println("XXX Errore durante caricamento da file XXX");
                             }
 
@@ -959,6 +958,5 @@ public class Main {
             }
         } while (!operatore.equals("FINE"));
         System.out.println("FINE");
-
     }
 }
